@@ -1,6 +1,6 @@
 package files;
 
-public class payLoadFirstSection {
+public class PayLoadFirstSection {
 
     public static String addPlace(){
 
@@ -27,7 +27,7 @@ public class payLoadFirstSection {
     public static String MockCoursePrice(){
          return "{\r\n" +
                 "  \"dashboard\": {\r\n" +
-                "    \"purchaseAmount\": 1162,\r\n" +
+                "    \"purchaseAmount\": 1163,\r\n" +
                 "    \"website\": \"rahulshettyacademy.com\"\r\n" +
                 "  },\r\n" +
                 "  \"courses\": [\r\n" +
@@ -60,6 +60,17 @@ public class payLoadFirstSection {
 
 
 
+    }
+
+    public static String AddBook(String isbn,String asile)
+    {
+        String s = "{\r\n" +"r\n" +
+                "\"name\": \"way to survive\",\r\n" +
+                "\"isbn\": \""+isbn+"\",\r\n" +
+                "\"aisle\": \""+asile+"\",\r\n" +
+                "\"author\": \"ahmed ziko\",\r\n" +
+                "  }\r\n" + "\n"+"";
+return s;
     }
 
 }

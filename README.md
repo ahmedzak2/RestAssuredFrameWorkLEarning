@@ -1,4 +1,4 @@
-# RestAssured Framework Learning
+ # RestAssured Framework Learning
 
 - As the shown above we use RestAssured dependency and import package to use it
 - As shown in below we use this command to store the url link to use it in the same method
@@ -68,3 +68,35 @@
       System.out.println(js.getString("courses["+i+"].price"));
   }
   ```
+
+- When you need to pass different combinations  when you run you test you use data provider 
+   - then add functions which you define your data as shown
+
+```
+@DataProvider(name = "BookData")
+    public Object[][] getData(){
+
+        // array of the two elements which we need to send
+       return new Object[][]{{"",""},{"",""},{"",""}};
+    }
+
+```
+- then to use it use as shown 
+  - As you see we add data provider to you test and then in function make it receive the data 
+  - It runs the test as many times you make your array of data 
+
+```
+
+   @Test(dataProvider ="BookData")
+    public void addBokk(String isbn, String asile ){
+}
+```
+
+- If I have json in file to read form it we use
+   -  and it converts all contents of file to byte 
+   - Then you need to convert it to string  as shown
+
+```
+.body(new String(Files.readAllBytes(Paths.get("path"))))
+
+```

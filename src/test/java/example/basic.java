@@ -1,7 +1,7 @@
 package example;
 
 import files.CommonMethods;
-import files.payLoadFirstSection;
+import files.PayLoadFirstSection;
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
 import org.testng.Assert;
@@ -13,7 +13,7 @@ public class basic {
     public static void main(String[] args) {
         RestAssured.baseURI= "https://rahulshettyacademy.com";
       String response=  given().queryParam("Key","qacklick123").header("Content-Type","application/json")
-                .body(payLoadFirstSection.addPlace()).when().post("maps/api/place/add/json").then().log().all().assertThat().statusCode(200).body("scope",equalTo("APP")).header("server","Apache/2.4.52 (Ubuntu)").extract().response().asString();
+                .body(PayLoadFirstSection.addPlace()).when().post("maps/api/place/add/json").then().log().all().assertThat().statusCode(200).body("scope",equalTo("APP")).header("server","Apache/2.4.52 (Ubuntu)").extract().response().asString();
         System.out.println(response);
         JsonPath js = new JsonPath(response);
        String placeId=  js.get("place_id");
