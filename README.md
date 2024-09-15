@@ -172,3 +172,36 @@ String authHeader = "Basic " + "your_encoded_string_here";
 
 
 ```
+
+### OAuth
+- it make server which when you log in give you access to use it with all end point you need to use 
+- Instead send you email and password every time 
+- It depends on what type of access granted as show below 
+   -  client credential   ( client ID - client screct )
+   -  password credential ( user name -password)
+  
+- and you must determine what type of access granted as shown below 
+-  You send your access as form params 
+
+```
+String response=  given().formParams("client_id", "692183103107-p0m7ent2hk7suguv4vq22hjcfhcr43pj.apps.googleusercontent.com")
+
+            .formParams("client_secret", "erZOWM9g3UtwNRj340YYaK_W")
+
+            .formParams("grant_type", "client_credentials").when().log().all().post("https://rahulshettyacademy.com/oauthapi/oauth2/resourceOwner/token").asString();
+
+
+```
+
+### POJO
+
+- we separate the json file as in classes as shown in pojo folder 
+ - and in  caode use the main calss or parent class of pojo  use it to convert the response for this class as shown in below 
+```
+GetCourse getCourse =given().queryParam("access_token",accessToken).when().log().all().get("https://rahulshettyacademy.com/oauthapi/getCourseDetails")
+
+                .as(GetCourse.class);
+    System.out.println(getCourse.getCourses().getWebAutomation().get(0).getCourseTitle());
+        System.out.println(getCourse.getCourses().getApi().get(1).getCourseTitle());
+```
+- The methods are access the parent class then access the child class then access the variable inside it to get the value 
