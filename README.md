@@ -205,3 +205,25 @@ GetCourse getCourse =given().queryParam("access_token",accessToken).when().log()
         System.out.println(getCourse.getCourses().getApi().get(1).getCourseTitle());
 ```
 - The methods are access the parent class then access the child class then access the variable inside it to get the value 
+-  This to take response of json then convert it to values inside variable inside class this is called Deserialization
+
+### Serialization
+- convert Java class to json file to send it 
+
+
+### request & response  Spec Builder  
+- To make variable which has the build of project 
+- we create it externally and added all information we need  we will put in it all  information which common between test cases   as  shown below 
+```
+  RequestSpecification requestSpecBuilder=   new RequestSpecBuilder().setBaseUri("https://rahulshettyacademy.com")
+              .addQueryParam("key", "qaclick123").setContentType(ContentType.JSON).build();
+RequestSpecification req =  given().spec(requestSpecBuilder).log().all().body(place);
+```
+- This is make the request take all common information and save it in variable of type  RequestSpecification to use it more than on time 
+-  and you can make another request  which have the body  attached to it 
+- If we talk about response  it will follow same as behaviour of request 
+```
+        ResponseSpecification responseSpecification =  new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+
+
+```
