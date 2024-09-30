@@ -223,7 +223,34 @@ RequestSpecification req =  given().spec(requestSpecBuilder).log().all().body(pl
 -  and you can make another request  which have the body  attached to it 
 - If we talk about response  it will follow same as behaviour of request 
 ```
-        ResponseSpecification responseSpecification =  new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+ResponseSpecification responseSpecification =  new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
+        
+```
+
+## how TO create list of array of items 
+
+- when you have as example more than one order and each order has its details and  
+- Yon need to create all orders So you make class for each order as in Order details and add its all information 
+- Then make list of orders and pass all order detail
+```
+       OrderDetail orderDetail =new OrderDetail();
+        orderDetail.setCountry("India");
+        orderDetail.setProductOrderId(productId);
+        OrderDetail orderDetail2 =new OrderDetail();
+        orderDetail2.setCountry("Egypt");
+        orderDetail2.setProductOrderId(productId);
+        List<OrderDetail> orderDetailList =new ArrayList<OrderDetail>();
+        orderDetailList.add(orderDetail);
+        orderDetailList.add(orderDetail2);
+        Order order =new Order();
+        order.setOrders(orderDetailList);
+
+```
+
+### Note important 
+- you can use  .rel axedHTTPSValidation() after the request given()  to bypass the ccl certificates in case of proxy or other things  
+```
+RequestSpecification requestSpecificationDelete= given().relaxedHTTPSValidation().spec(createAndDeleteOrderReq).log().all().pathParam("productId",productId);
 
 
 ```
