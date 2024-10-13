@@ -44,6 +44,24 @@
         <artifactId>jackson-databind</artifactId>
         <version>2.17.2</version>
     </dependency>
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.14.0</version> <!-- Or later, check for the latest secure version -->
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+    <dependency>
+        <groupId>io.cucumber</groupId>
+        <artifactId>cucumber-junit</artifactId>
+        <version>7.15.0</version>
+        <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.groovy/groovy -->
+    <dependency>
+        <groupId>org.apache.groovy</groupId>
+        <artifactId>groovy</artifactId>
+        <version>4.0.21</version>
+    </dependency>
 
 </dependencies>
 </project>

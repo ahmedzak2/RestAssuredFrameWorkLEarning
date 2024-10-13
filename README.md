@@ -254,3 +254,22 @@ RequestSpecification requestSpecificationDelete= given().relaxedHTTPSValidation(
 
 
 ```
+
+
+### Save logs in file 
+
+```
+public RequestSpecification requestSpecification () throws FileNotFoundException {
+        PrintStream printStream = new PrintStream(new FileOutputStream("Logging.txt"));
+        return new RequestSpecBuilder()
+                .setBaseUri("https://rahulshettyacademy.com")
+                .setContentType(ContentType.JSON).addFilter(RequestLoggingFilter.logRequestTo(printStream))
+                .build();
+
+    }
+```
+- As you see we add addFilter(RequestLoggingFilter.logRequestTo(printStream) 
+- method in RestAssured is used to log the details of HTTP requests to a specified output stream, 
+   - such as System.out or another custom PrintStream.
+   - RequestLoggingFilter: This is a filter provided by RestAssured that intercepts and logs the HTTP request.
+   - logRequestTo(PrintStream): This method of RequestLoggingFilter configures the filter to log the details of the request to the provided PrintStream object.
