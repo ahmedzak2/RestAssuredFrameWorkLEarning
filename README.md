@@ -273,3 +273,30 @@ public RequestSpecification requestSpecification () throws FileNotFoundException
    - such as System.out or another custom PrintStream.
    - RequestLoggingFilter: This is a filter provided by RestAssured that intercepts and logs the HTTP request.
    - logRequestTo(PrintStream): This method of RequestLoggingFilter configures the filter to log the details of the request to the provided PrintStream object.
+
+## MVN run 
+
+
+## reporting 
+
+- you this link and follow the guideline to report 
+- https://github.com/damianszczepanik/maven-cucumber-reporting
+- Then in test runner add plugin and the path for reports as shown below
+``` 
+plugin = "json:src/resources/cucumber-report.json"
+
+```
+
+then  edit in pom xmml in plugins which you copy form the link in 
+```
+<outputDirectory>src/test/java/Pages/resources/reports</outputDirectory>
+<inputDirectory>${project.build.directory}/jsonReports</inputDirectory>
+
+```
+  - As it see input and output directory to  make the path as you define in test runner 
+
+- Then run in terminal 
+
+```
+mvn test verify
+```
