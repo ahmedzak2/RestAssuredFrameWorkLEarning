@@ -300,3 +300,10 @@ then  edit in pom xmml in plugins which you copy form the link in
 ```
 mvn test verify
 ```
+
+
+## Excel in rest assured 
+- We need to download the  2 dependency to  start working with excel 
+   - poi ooxml dependencies
+   - poi  dependencies 
+  
